@@ -1,0 +1,36 @@
+.videoblock-module-block {
+  position: relative;
+}
+
+.videoblock-video-wrapper, .videoblock-cta-shell {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.videoblock-video {
+
+}
+
+.videoblock-cta-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 2000;
+}
+
+.videoblock-cta-shell {
+
+}
+
+.videoblock-cta {
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  opacity: 0.5;
+  padding: 0.66em;
+  font-family: Arial, sans-serif;
+  position: absolute;
+  top: 23%;
+
+}

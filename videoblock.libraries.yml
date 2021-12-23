@@ -1,0 +1,7 @@
+videoblock:
+  version: 1.0
+  css:
+    theme:
+      css/videoblock.css: {}
+  js:
+    js/videoblock.js: {}
