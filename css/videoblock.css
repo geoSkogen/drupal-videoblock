@@ -1,36 +1,75 @@
 .videoblock-module-block {
-  position: relative;
+
 }
 
-.videoblock-video-wrapper, .videoblock-cta-shell {
+.videoblock-video-wrapper {
+
+}
+
+
+.videoblock-video-shell, .videoblock-cta-wrapper {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
 }
 
 .videoblock-video {
-
+  z-index: 100;
+  width: 350px;
 }
 
 .videoblock-cta-wrapper {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 2000;
+
 }
 
 .videoblock-cta-shell {
-
+  width: 350px;
+  position: relative;
 }
 
 .videoblock-cta {
-  background-color: black;
   color: white;
-  font-size: 20px;
+  background-color:black;
+  padding: 1em 0 1em 0;
+  font-size: 16px;
+  font-weight: 800;
   opacity: 0.5;
-  padding: 0.66em;
-  font-family: Arial, sans-serif;
   position: absolute;
-  top: 23%;
+  z-index: 500;
+  text-align: center;
+  top: -12.5em;
+  width: 100%;
+}
 
+@media only screen and (min-width:720px) {
+
+  .videoblock-cta-shell {
+    width: 700px;
+  }
+
+  .videoblock-cta {
+    font-size: 24px;
+    top: -15.66em;
+  }
+
+  .videoblock-video {
+    width: 700px;
+  }
+}
+
+@media only screen and (min-width:1220px) {
+
+  .videoblock-cta-shell {
+    width: 1170px;
+  }
+
+  .videoblock-cta {
+    font-size: 32px;
+    top: -18.66em;
+    left: auto;
+  }
+
+  .videoblock-video {
+    width: 1170px;
+  }
 }

@@ -30,21 +30,23 @@ class VideoBlock extends BlockBase {
     $attach = [
       '#markup' => $this->t(
         '<section class="videoblock-module-block">
+           <div class="videoblock-video-wrapper">
+             <div class="videoblock-video-shell">
+               <video
+                 src="@src"
+                 muted="true"
+                 loop="true"
+                 autoplay="true"
+                 controls
+                 class="videoblock-video"
+               >
+               </video>
+             </div>
+           </div>
            <div class="videoblock-cta-wrapper">
              <div class="videoblock-cta-shell">
                <h3 class="videoblock-cta">@cta</h3>
              </div>
-           </div>
-           <div class="videoblock-video-wrapper">
-             <video
-               src="@src"
-               muted="true"
-               loop="true"
-               autoplay="true"
-               controls
-               class="videoblock-video"
-             >
-             </video>
            </div>
          </section> ',
         [ '@src' => $src, '@cta' => $cta ]
