@@ -21,10 +21,18 @@ class VideoBlock extends BlockBase {
     if (!empty($config['videoblock_block_src'])) {
       $src = $config['videoblock_block_src'];
       $cta = $config['videoblock_block_cta'];
+
+      $cta_markup = empty($cta) ? '' :
+      '<div class="videoblock-cta-wrapper">
+        <div class="videoblock-cta-shell">
+          <h3 class="videoblock-cta">@cta</h3>
+        </div>
+      </div>';
     }
     else {
       $src = $this->t('#');
       $cta = $this->t('@');
+      $cta_markup = '';
     }
     //
     $attach = [
@@ -42,13 +50,9 @@ class VideoBlock extends BlockBase {
                >
                </video>
              </div>
-           </div>
-           <div class="videoblock-cta-wrapper">
-             <div class="videoblock-cta-shell">
-               <h3 class="videoblock-cta">@cta</h3>
-             </div>
-           </div>
-         </section> ',
+           </div>'
+           . $cta_markup .
+         '</section> ',
         [ '@src' => $src, '@cta' => $cta ]
       )
     ];
@@ -59,8 +63,8 @@ class VideoBlock extends BlockBase {
 
 
   public function blockForm($form, FormStateInterface $form_state) {
-   $form = parent::blockForm($form, $form_state);
 
+   $form = parent::blockForm($form, $form_state);
    $config = $this->getConfiguration();
 
    $form['videoblock_block_src'] = [
@@ -73,7 +77,7 @@ class VideoBlock extends BlockBase {
    $form['videoblock_block_cta'] = [
      '#type' => 'textfield',
      '#title' => $this->t('CTA'),
-     '#description' => $this->t('add a CTA for the video block'),
+     '#description' => $this->t('add a CTA for the video block - optional'),
      '#default_value' => $config['videoblock_block_cta'] ?? '',
    ];
 
@@ -92,10 +96,7 @@ class VideoBlock extends BlockBase {
 
  public function blockValidate($form, FormStateInterface $form_state) {
    if($form_state->getValue('videoblock_block_src') === ''){
-     $form_state->setErrorBysrc('videoblock_block_src', $this->t('Field cannot be blank'));
-   }
-   if($form_state->getValue('videoblock_block_cta') === ''){
-     $form_state->setErrorBysrc('videoblock_block_cta', $this->t('Field cannot be blank'));
+     $form_state->setErrorBySrc('videoblock_block_src', $this->t('Field cannot be blank'));
    }
  }
 

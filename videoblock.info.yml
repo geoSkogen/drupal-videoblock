@@ -1,5 +1,5 @@
-name: PDX-d9 video tag HTML5
-description: preformatted moving-picture-style video element
+name: PDX Video-Embed HTML5
+description: responsive moving-picture-style video with call-to-action
 package: Custom
 type: module
 version: 1.0
